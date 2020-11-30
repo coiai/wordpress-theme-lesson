@@ -25,3 +25,20 @@ function sakura_theme_link(){
 add_action('wp_enqueue_scripts', 'sakura_theme_link');
 
 //  hoge,hoge    hoge, hoge
+
+function sakura_theme_init(){
+    register_post_type(
+        'daily', [
+            "labels" => [
+                "name" => "日報"
+            ],
+            "public" => true,
+            // アイコンの設定
+            'menu_icon' => 'dashicons-pets', 
+            //表示順の設定
+            'menu_position' => 3,
+            // 新エディタに変えるコード
+            'show_in_rest' => true,
+     ]);
+}
+add_action('init','sakura_theme_init');
