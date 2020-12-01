@@ -5,12 +5,13 @@
         <?php while(have_posts()): the_post(); ?>
             <a href="<?php the_permalink(); ?>">
 
-                <div class="blog-content" >
+                <div class="post">
                     <?php the_post_thumbnail('thumbnail'); ?>
-                    <div class="blog-info">
-                        <h2><?php the_title(); ?></h2>
-                        <p><?php the_excerpt(); ?></p>
+                    <div class="post__content">
+                        <h2 class="post__title"><?php the_title(); ?></h2>
+                        <?php echo "<p class='post__text'>" . get_the_excerpt() . "</p>" ; ?>
                         <a href="#"><?php the_tags(); ?></a><a href="#"><?php the_time(); ?></a>
+
                     </div>
                 </div>
 
