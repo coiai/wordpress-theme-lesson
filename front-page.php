@@ -61,6 +61,7 @@ echo "今日は".date("Y/m/d").$week[$w]."です";
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, autem consequuntur! Quae quibusdam eaque inventore, architecto at rerum. Consectetur placeat nostrum cupiditate similique corrupti quos officiis voluptatum ipsam optio veniam?</p>
                 </div>
             </div>
+
         </section>
     
 
@@ -72,14 +73,16 @@ echo "今日は".date("Y/m/d").$week[$w]."です";
                 
                 <?php if(have_posts()): ?>
                     <?php while(have_posts()): the_post(); ?>
-                        <div class="blog-content" >
-                            <?php the_post_thumbnail('thumbnail'); ?>
-                            <div class="blog-info">
-                                <h2><?php the_title(); ?></h2>
-                                <p><?php the_excerpt(); ?></p>
-                                <a href="#"><?php the_tags(); ?></a><a href="#"><?php the_time(); ?></a>
+                        <a href="<?php the_permalink(); ?>">
+                            <div class="blog-content" >
+                                <?php the_post_thumbnail('thumbnail'); ?>
+                                <div class="blog-info">
+                                    <h2><?php the_title(); ?></h2>
+                                    <p><?php the_excerpt(); ?></p>
+                                    <a href="#"><?php the_tags(); ?></a><a href="#"><?php the_time(); ?></a>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     <?php endwhile; ?>
                 <?php else: ?>
                     <!-- 投稿データが取得できない場合の処理 -->
@@ -88,6 +91,7 @@ echo "今日は".date("Y/m/d").$week[$w]."です";
 
 
             </div>
+            <a href="/news" class="button blog__button" >もっとみる</a>
         </section>
 
 
